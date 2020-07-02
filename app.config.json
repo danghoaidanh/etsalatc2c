@@ -1,0 +1,922 @@
+{
+  "actg": {
+    "baseUrl": "https://etisalatactg.herokuapp.com/",
+    "api": {
+      "token": "/token?identifier=[destId]"
+    }
+  },
+  "brand": {
+    "header": {
+      "logoUrl": "img/icon.png",
+      "appTitle": "i18n|headerAppTitle"
+    },
+    "footer": {
+      "note": "i18n|footerNote"
+    }
+  },
+  "kandy": {
+    "authentication": {
+      "subscription": {
+        "server": "ct-webrtc.etisalat.ae",
+        "port": "443"
+      },
+      "websocket": {
+        "server": "ct-webrtc.etisalat.ae",
+        "port": "443"
+      }
+    },
+    "call": {
+      "removeCodecs": ["VP8", "opus", "G722", "VP9", "ISAC"],
+      "removeH264Codecs": false,
+      "earlyMedia": true,
+	  "serverTurnCredentials": true,
+      "iceServers": [
+        {
+          "url": "turns:ct-turn1.etisalat.ae:443?transport=tcp",
+          "credential": ""
+        },
+        {
+          "url": "turns:ct-turn2.etisalat.ae:443?transport=tcp",
+          "credential": ""
+        },
+        {
+          "url": "stun:ct-turn1.etisalat.ae:3478?transport=udp"
+        },
+        {
+          "url": "stun:ct-turn2.etisalat.ae:3478?transport=udp"
+        }
+      ]
+    },
+    "logs": {
+      "logLevel": "debug",
+      "logActions": {
+        "actionOnly": false,
+        "exposePayloads": true
+      }
+    }
+  },
+  "preference": {
+    "microphone": true,
+    "camera": true,
+    "screenshare": true,
+    "autoClose": true,
+    "autoDial": true
+  },
+  "identifier": {
+    "non-tokenized-without-landingpage": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "callee": "user@domain.com",
+        "tokenized": false,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+    "non-tokenized-with-landingpage": {
+      "landingPage": {
+        "enabled": true,
+        "content": {
+          "title": "i18n|titleWelcome",
+          "description": "i18n|descriptionFillUpForm",
+          "inputField": [
+            {
+              "id": "x-fullname",
+              "label": "i18n|labelFullname",
+              "hint": "i18n|hintFullname",
+              "match": "^[a-zA-Z0-9 ._-]{3,30}$",
+              "tip": "i18n|tipFullname",
+              "errmsg": "i18n|errmsgFullname"
+            },
+            {
+              "id": "x-baggage",
+              "label": "i18n|labelBaggage",
+              "hint": "i18n|hintBaggage",
+              "match": "^[a-zA-Z0-9]{8,10}$",
+              "tip": "i18n|tipBaggage",
+              "errmsg": "i18n|errmsgBaggage"
+            }
+          ],
+          "buttonLabel": "i18n|buttonLabelCall"
+        }
+      },
+      "connect": {
+        "callee": "user@domain.com",
+        "tokenized": false,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": true,
+        "screenshare": true
+      }
+    },
+    "tokenized-without-landingpage": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "actgId": "tokenized-without-landingpage",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+    "tokenized-with-landingpage": {
+      "landingPage": {
+        "enabled": true,
+        "content": {
+          "title": "i18n|titleWelcome",
+          "description": "i18n|descriptionFillUpForm",
+          "inputField": [
+            {
+              "id": "x-fullname",
+              "label": "i18n|labelFullname",
+              "hint": "i18n|hintFullname",
+              "match": "^[a-zA-Z0-9 ._-]{3,30}$",
+              "tip": "i18n|tipFullname",
+              "errmsg": "i18n|errmsgFullname"
+            },
+            {
+              "id": "x-baggage",
+              "label": "i18n|labelBaggage",
+              "hint": "i18n|hintBaggage",
+              "match": "^[a-zA-Z0-9]{8,10}$",
+              "tip": "i18n|tipBaggage",
+              "errmsg": "i18n|errmsgBaggage"
+            }
+          ],
+          "buttonLabel": "i18n|buttonLabelCall"
+        }
+      },
+      "connect": {
+        "actgId": "tokenized-with-landingpage",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": true,
+        "screenshare": true
+      }
+    },
+	"etisalat-tokenized-with-landingpage": {
+      "landingPage": {
+        "enabled": true,
+        "content": {
+          "title": "i18n|titleWelcome",
+          "description": "i18n|descriptionFillUpForm",
+          "inputField": [
+            {
+              "id": "x-fullname",
+              "label": "i18n|labelFullname",
+              "hint": "i18n|hintFullname",
+              "match": "^[a-zA-Z0-9 ._-]{3,30}$",
+              "tip": "i18n|tipFullname",
+              "errmsg": "i18n|errmsgFullname"
+            },
+            {
+              "id": "x-baggage",
+              "label": "i18n|labelBaggage",
+              "hint": "i18n|hintBaggage",
+              "match": "^[a-zA-Z0-9]{8,10}$",
+              "tip": "i18n|tipBaggage",
+              "errmsg": "i18n|errmsgBaggage"
+            }
+          ],
+          "buttonLabel": "i18n|buttonLabelCall"
+        }
+      },
+      "connect": {
+        "actgId": "etisalat-tokenized-with-landingpage",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": true,
+        "screenshare": true
+      }
+    },
+	"etisalat-tokenized-without-landingpage": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "actgId": "etisalat-tokenized-without-landingpage",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+	"etisalat-tokenized-without-landingpage-tc1": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "actgId": "etisalat-tokenized-without-landingpage-tc1",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+	"etisalat-tokenized-without-landingpage-tc2": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "actgId": "etisalat-tokenized-without-landingpage-tc2",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+	"etisalat-tokenized-without-landingpage-tc3": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "actgId": "etisalat-tokenized-without-landingpage-tc3",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+	"etisalat-tokenized-without-landingpage-tc4": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "actgId": "etisalat-tokenized-without-landingpage-tc4",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": true,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": true,
+        "screenshare": false
+      }
+    },
+	"etisalat-tokenized-without-landingpage-tc5": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "actgId": "etisalat-tokenized-without-landingpage-tc5",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": true,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": true,
+        "screenshare": false
+      }
+    },
+	"etisalat-tokenized-with-landingpage-tc1": {
+      "landingPage": {
+        "enabled": true,
+        "content": {
+          "title": "i18n|titleWelcome",
+          "description": "i18n|descriptionFillUpForm",
+          "inputField": [
+            {
+              "id": "x-fullname",
+              "label": "i18n|labelFullname",
+              "hint": "i18n|hintFullname",
+              "match": "^[a-zA-Z0-9 ._-]{3,30}$",
+              "tip": "i18n|tipFullname",
+              "errmsg": "i18n|errmsgFullname"
+            },
+            {
+              "id": "x-baggage",
+              "label": "i18n|labelBaggage",
+              "hint": "i18n|hintBaggage",
+              "match": "^[a-zA-Z0-9]{8,10}$",
+              "tip": "i18n|tipBaggage",
+              "errmsg": "i18n|errmsgBaggage"
+            }
+          ],
+          "buttonLabel": "i18n|buttonLabelCall"
+        }
+      },
+      "connect": {
+        "actgId": "etisalat-tokenized-with-landingpage-tc1",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+	"etisalat-tokenized-with-landingpage-tc2": {
+      "landingPage": {
+        "enabled": true,
+        "content": {
+          "title": "i18n|titleWelcome",
+          "description": "i18n|descriptionFillUpForm",
+          "inputField": [
+            {
+              "id": "x-fullname",
+              "label": "i18n|labelFullname",
+              "hint": "i18n|hintFullname",
+              "match": "^[a-zA-Z0-9 ._-]{3,30}$",
+              "tip": "i18n|tipFullname",
+              "errmsg": "i18n|errmsgFullname"
+            },
+            {
+              "id": "x-baggage",
+              "label": "i18n|labelBaggage",
+              "hint": "i18n|hintBaggage",
+              "match": "^[a-zA-Z0-9]{8,10}$",
+              "tip": "i18n|tipBaggage",
+              "errmsg": "i18n|errmsgBaggage"
+            }
+          ],
+          "buttonLabel": "i18n|buttonLabelCall"
+        }
+      },
+      "connect": {
+        "actgId": "etisalat-tokenized-with-landingpage-tc2",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+	"etisalat-tokenized-with-landingpage-tc3": {
+      "landingPage": {
+        "enabled": true,
+        "content": {
+          "title": "i18n|titleWelcome",
+          "description": "i18n|descriptionFillUpForm",
+          "inputField": [
+            {
+              "id": "x-fullname",
+              "label": "i18n|labelFullname",
+              "hint": "i18n|hintFullname",
+              "match": "^[a-zA-Z0-9 ._-]{3,30}$",
+              "tip": "i18n|tipFullname",
+              "errmsg": "i18n|errmsgFullname"
+            },
+            {
+              "id": "x-baggage",
+              "label": "i18n|labelBaggage",
+              "hint": "i18n|hintBaggage",
+              "match": "^[a-zA-Z0-9]{8,10}$",
+              "tip": "i18n|tipBaggage",
+              "errmsg": "i18n|errmsgBaggage"
+            }
+          ],
+          "buttonLabel": "i18n|buttonLabelCall"
+        }
+      },
+      "connect": {
+        "actgId": "etisalat-tokenized-with-landingpage-tc3",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+	"etisalat-tokenized-with-landingpage-tc4": {
+      "landingPage": {
+        "enabled": true,
+        "content": {
+          "title": "i18n|titleWelcome",
+          "description": "i18n|descriptionFillUpForm",
+          "inputField": [
+            {
+              "id": "x-fullname",
+              "label": "i18n|labelFullname",
+              "hint": "i18n|hintFullname",
+              "match": "^[a-zA-Z0-9 ._-]{3,30}$",
+              "tip": "i18n|tipFullname",
+              "errmsg": "i18n|errmsgFullname"
+            },
+            {
+              "id": "x-baggage",
+              "label": "i18n|labelBaggage",
+              "hint": "i18n|hintBaggage",
+              "match": "^[a-zA-Z0-9]{8,10}$",
+              "tip": "i18n|tipBaggage",
+              "errmsg": "i18n|errmsgBaggage"
+            }
+          ],
+          "buttonLabel": "i18n|buttonLabelCall"
+        }
+      },
+      "connect": {
+        "actgId": "etisalat-tokenized-with-landingpage-tc4",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": true,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": true,
+        "screenshare": false
+      }
+    },
+	"etisalat-tokenized-with-landingpage-tc5": {
+      "landingPage": {
+        "enabled": true,
+        "content": {
+          "title": "i18n|titleWelcome",
+          "description": "i18n|descriptionFillUpForm",
+          "inputField": [
+            {
+              "id": "x-fullname",
+              "label": "i18n|labelFullname",
+              "hint": "i18n|hintFullname",
+              "match": "^[a-zA-Z0-9 ._-]{3,30}$",
+              "tip": "i18n|tipFullname",
+              "errmsg": "i18n|errmsgFullname"
+            },
+            {
+              "id": "x-baggage",
+              "label": "i18n|labelBaggage",
+              "hint": "i18n|hintBaggage",
+              "match": "^[a-zA-Z0-9]{8,10}$",
+              "tip": "i18n|tipBaggage",
+              "errmsg": "i18n|errmsgBaggage"
+            }
+          ],
+          "buttonLabel": "i18n|buttonLabelCall"
+        }
+      },
+      "connect": {
+        "actgId": "etisalat-tokenized-with-landingpage-tc5",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": true,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": true,
+        "screenshare": false
+      }
+    },
+	"non-tokenized-without-landingpage-tc1": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "callee": "84964300242@uaetest.com",
+        "tokenized": false,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": true,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": true,
+        "screenshare": false
+      }
+    },
+	"non-tokenized-without-landingpage-tc2": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "callee": "84964300243@uaetest.com",
+        "tokenized": false,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+	"non-tokenized-without-landingpage-tc3": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "callee": "84964300219@uaetest.com",
+        "tokenized": false,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+	"non-tokenized-without-landingpage-tc4": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "callee": "0084971809071@domain.com",
+        "tokenized": false,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+	"etisalat-billing-tokenized-with-landingpage-tc4": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "actgId": "etisalat-billing-tokenized-with-landingpage-tc4",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+	"etisalat-billing-tokenized-with-landingpage-tc5": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "actgId": "etisalat-billing-tokenized-with-landingpage-tc5",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+	"etisalat-billing-tokenized-with-landingpage-tc6-yealink": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "actgId": "etisalat-billing-tokenized-with-landingpage-tc6-yealink",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+	"etisalat-billing-tokenized-with-landingpage-tc6-so": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "actgId": "etisalat-billing-tokenized-with-landingpage-tc6-so",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+	"etisalat-billing-tokenized-with-landingpage-tc7-pstn1": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "actgId": "etisalat-billing-tokenized-with-landingpage-tc7-pstn1",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+	"etisalat-billing-tokenized-with-landingpage-tc7-pstn2": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "actgId": "etisalat-billing-tokenized-with-landingpage-tc7-pstn2",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },"etisalat-non-tokenized-without-landingpage-iOSAndroidJS": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "callee": "84964300247@uaetest.com",
+        "tokenized": false,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    },
+	"tokenized-without-landingpage-test": {
+      "landingPage": {
+        "enabled": false
+      },
+      "connect": {
+        "actgId": "tokenized-without-landingpage-test",
+        "tokenized": true,
+        "callOptions": {
+          "from": "sip:anonymous@invalid.com",
+          "audio": true,
+          "video": false,
+          "videoOptions": {
+            "width": 480,
+            "height": 360
+          },
+          "customParameters": []
+        }
+      },
+      "preference": {
+        "microphone": true,
+        "camera": false,
+        "screenshare": false
+      }
+    }
+  }
+}
